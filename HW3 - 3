@@ -1,0 +1,49 @@
+def isPrime(n):
+    '''check if integer n is a prime'''
+    for x in range(2, int(n**0.5)+1):
+        if n % x == 0:
+            return False
+    return True
+
+print isPrime(7)
+
+def primeList(n):
+    primes = []
+    for i in range(n+1):
+        if isPrime(i) == True:
+            primes.append(i)
+    return primes
+
+print primeList(100)
+timeit("primeList(100)")
+
+True
+[0, 1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+125 loops, best of 3: 5.55 ms per loop
+
+%cython
+
+def isPrimeC(n):
+    '''check if integer n is a prime'''
+    cdef int x
+    for x in range(2, int(n**0.5)+1):
+        if n % x == 0:
+            return False
+    return True
+
+print isPrimeC(7)
+
+def primeListC(n):
+    cdef int i
+    primes = []
+    for i in range(n+1):
+        if isPrimeC(i) == True:
+            primes.append(i)
+    return primes
+
+print primeListC(100)
+%timeit primeListC(100)
+
+True
+[0, 1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+125 loops, best of 3: 1.22 ms per loop
