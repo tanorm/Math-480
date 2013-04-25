@@ -1,3 +1,7 @@
+""" The following method multiplies two given 4x4 matrices together and returns the new matrix. It takes each
+element of one matrix and then multiplies it with its corresponding element in the other matrix. It places this
+product into the correct slot of the new matrix. This process is repeated on a loop for all elements."""
+
 def mult_4x4_matrices(x, y):
 
     multed = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
@@ -13,6 +17,9 @@ timeit("mult_4x4_matrices([[3,4,8,2],[4,4,5,1],[5,7,2,6],[4,4,9,6]], [[3,4,8,2],
 
 [[73, 92, 78, 70], [57, 71, 71, 48], [77, 86, 133, 65], [97, 119, 124, 102]]
 625 loops, best of 3: 86.8 µs per loop
+
+"""For the cython method I used cdef on the row and column values of the matrices in this case was always 4 for both.
+This seemed to only slightly speed up the runtime."""
 
 %cython
 
