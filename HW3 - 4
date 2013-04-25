@@ -1,3 +1,10 @@
+""" The following method finds the determinant of a 4x4 matrix and returns it. I used 
+R = PolynomialRing(QQ,16,'x')
+a = matrix(R,4,4,R.gens())
+a.det()
+
+to find the equation for the determinant of a 4x4 matrix. 
+
 def det(x):
     x0 = x[0][0]
     x4 = x[0][1]
@@ -46,6 +53,12 @@ timeit("det([[3,4,8,2],[4,4,5,1],[5,7,2,6],[4,4,9,6]])")
 
 291
 625 loops, best of 3: 34.9 µs per loop
+
+
+""" For cython I once again attempted to assign the variables with cdef but kept getting syntax errors.
+I will be asking you about this later because I'm probably missing something basic. Attempted:
+cdef int x0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15 
+Cython did increase the speed without assigning the variables with cdef """
 
 %cython
 
