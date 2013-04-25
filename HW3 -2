@@ -1,16 +1,29 @@
+""" The following code uses a loop to add together all the sums of the integers squared up to the integer given """
+
 def sumSquares(n):
   s = int(0)
   for i in range (n+1):
     s += i**2
   return s
 
-timeit("sumSquares(1000)")
-625 loops. best of 3: 503 µs per loop
+timeit("sumSquares(10000)")
 
+25 loops, best of 3: 9.23 ms per loop
+
+""" For the cython version I attempted to change the variable s into a cdef variable but i kept getting a syntax error
+I tried variations of 
+cdef int s 
+s = 0
+However, just changing the method into cython significantly reduced the run time anyways"""
 
 %cython
+
 def sumSquaresC(n):
   s = int(0)
   for i in range (n+1):
     s += i**2
   return s
+
+%timeit sumSquaresC(10000)
+
+625 loops, best of 3: 50.2 µs per loop
