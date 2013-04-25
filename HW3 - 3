@@ -1,6 +1,6 @@
-''' The following two methods create a list of all the primes up to the given integer '''
+""" The following two methods create a list of all the primes up to the given integer """
 
-""" I found this snippet of code often used to determine if
+""" I found this snippet of code often used to determine if a number is prime or not """
 def isPrime(n):
     for x in range(2, int(n**0.5)+1):
         if n % x == 0:
@@ -8,6 +8,10 @@ def isPrime(n):
     return True
 
 print isPrime(7)
+
+""" The following method loops through all the numbers between 0 and the given integer and checks to see if
+each value is a prime using isPrime(). If a value is prime it adds it to the array and after all the
+iterations returns the array"""
 
 def primeList(n):
     primes = []
@@ -22,6 +26,9 @@ timeit("primeList(100)")
 True
 [0, 1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
 125 loops, best of 3: 5.55 ms per loop
+
+""" For the cython version I created cdef ints for each of the values looping through all the integers between
+0 and the given integer. This seemed to decrease the run time for the methods. """
 
 %cython
 
