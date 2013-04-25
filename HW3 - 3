@@ -1,5 +1,7 @@
+''' The following two methods create a list of all the primes up to the given integer '''
+
+""" I found this snippet of code often used to determine if
 def isPrime(n):
-    '''check if integer n is a prime'''
     for x in range(2, int(n**0.5)+1):
         if n % x == 0:
             return False
