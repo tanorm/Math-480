@@ -1,0 +1,33 @@
+def mult_4x4_matrices(x, y):
+
+    multed = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+
+    for i in range(4):
+        for j in range(4):
+            for k in range(4):
+                multed[i][j] += x[i][k]*y[k][j]
+    return multed
+
+print mult_4x4_matrices([[3,4,8,2],[4,4,5,1],[5,7,2,6],[4,4,9,6]], [[3,4,8,2],[4,4,5,1],[5,7,2,6],[4,4,9,6]])
+timeit("mult_4x4_matrices([[3,4,8,2],[4,4,5,1],[5,7,2,6],[4,4,9,6]], [[3,4,8,2],[4,4,5,1],[5,7,2,6],[4,4,9,6]])")
+
+[[73, 92, 78, 70], [57, 71, 71, 48], [77, 86, 133, 65], [97, 119, 124, 102]]
+625 loops, best of 3: 86.8 µs per loop
+
+%cython
+
+def mult_4x4_matrices(x, y):
+    cdef int row, column
+    multed = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+
+    for i in range(row):
+        for j in range(column):
+            for k in range(column):
+                multed[i][j] += x[i][k]*y[k][j]
+    return multed
+
+print mult_4x4_matrices([[3,4,8,2],[4,4,5,1],[5,7,2,6],[4,4,9,6]], [[3,4,8,2],[4,4,5,1],[5,7,2,6],[4,4,9,6]])
+%timeit mult_4x4_matrices([[3,4,8,2],[4,4,5,1],[5,7,2,6],[4,4,9,6]], [[3,4,8,2],[4,4,5,1],[5,7,2,6],[4,4,9,6]])
+
+[[73, 92, 78, 70], [57, 71, 71, 48], [77, 86, 133, 65], [97, 119, 124, 102]]
+625 loops, best of 3: 64.8 µs per loop
