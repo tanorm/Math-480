@@ -4,6 +4,9 @@ def sumSquares(n):
     s += i**2
   return s
 
+timeit("sumSquares(1000)")
+625 loops. best of 3: 503 µs per loop
+
 
 %cython
 def sumSquaresC(n):
