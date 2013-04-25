@@ -1,0 +1,36 @@
+""" This is HW 2 from kippig. I simply changed the integers a and b into cdef integers. This should speed up their
+call time so that every time the variables are called the method can grab the int value faster. 
+This will decrease the overall programs run time."""
+
+
+%cython
+
+print 'This program checks to see if two numbers are co-prime!'
+
+# This code gets two integers from the user. It is foolproof.
+cdef int a, b
+
+a = 0
+b = 0
+while not isinstance(a, (int, long)) or not isinstance(b, (int, long))  or a < 1 or b < 1:
+    print 'Please enter two integers greater than zero.'
+    a = input('First number: ')
+    b = input('Second number: ')
+#print a
+#print b
+A = max(a,b)
+B = min(a,b)
+
+#Euclidean Algorithm
+remainder = 2
+while A%B > 1:
+    remainder = A%B
+    A = B
+    B = remainder
+
+if B == 1 or A%B == 1:
+    print str(a) + ' and ' + str(b) + ' are co-prime.'
+elif A%B == 0:
+    print str(a) + ' and ' + str(b) + ' have at least one common divisor: ' + str(B)
+else:
+    print 'Euclidean Error' #Shouldn't ever happen.
