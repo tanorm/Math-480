@@ -1,0 +1,24 @@
+x = 0.13869616280169693
+y = continued_fraction(x, nterms=25) #Creates continued fraction with 25 elements
+z = y.convergents() #Truncates and evaluates the best possible rational expression for each element
+
+The modulus of the given number is itself as shown below.
+
+m = 372806624339965 % (37 + 10^15)
+print m
+372806624339965
+
+
+The following for loop checks each element of the continued fraction for the same modulus
+as the given number.
+
+for i in range(len(y)):
+    if z[i] % (37 + 10^15) == 372806624339965:
+        print z[i]
+        print i
+
+1234567/8901234
+15
+
+So alpha = 1234567/8901234 which has a modulus 372806624339965 and seven numbers in the numerator and the
+denominator.
