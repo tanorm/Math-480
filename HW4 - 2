@@ -1,0 +1,36 @@
+This function creates a list containing the number of times a value shows up when every
+prime number up to 10^7 is modded by n. The number is placed in its corresponding spot on the list.
+So the total number of 2's is in [1] of the list.
+
+def mod_n_list(n):
+    prime = prime_range(10^7)
+    prime_mod = range(len(prime))
+    for i in prime_mod:
+        prime_mod[i] = prime[i] % n
+    if is_prime(n):
+        hist = stats.TimeSeries(prime_mod).histogram(n)
+    else:
+        hist = stats.TimeSeries(prime_mod).histogram(n-1)
+    return hist[0]
+
+print mod_n_list(15)
+
+Sidenote: When I was playing around with the TimeSeries object I couldn't quite get it to print out the actual histogram
+so I ended up just plugging the values into my calculator. (I was using the sage cell server)
+
+When examining the results for n = 15
+[83003, 83108, 1, 83010, 1, 0, 83104, 83152, 0, 0, 83101, 0, 83077, 83022]
+it appears that for the values that do appear when the primes are modded by n
+have very similar frequencies. The values that appeared once are 3 and 5 which makes sense because
+they are factors of 15. The values that didn't appear also have the factors 3 or 5.
+My conjecture simply from n = 15 is that there are subsets of the primes which are
+sets of primes all with the same remainder. These sets are equivalently distributed throughout the primes
+meaning a set with one remainder has almost the same elements as a set with a different remainder.
+
+
+
+
+print mod_n_list(3)
+print mod_n_list(12)
+print mod_n_list(17)
+print mod_n_list(40)
