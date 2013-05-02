@@ -29,8 +29,17 @@ meaning a set with one remainder has almost the same elements as a set with a di
 
 
 
-
 print mod_n_list(3)
+[1, 332194, 332384]
 print mod_n_list(12)
+[166011, 1, 1, 0, 166169, 0, 166183, 0, 0, 0, 166214]
 print mod_n_list(17)
-print mod_n_list(40)
+[1, 41498, 41488, 41525, 41561, 41529, 41580, 41557, 41455, 41593, 41531, 41540, 41517, 41511, 41547, 41504, 41642]
+print mod_n_list(30)
+[83003, 1, 1, 0, 1, 0, 83104, 0, 0, 0, 83101, 0, 83077, 0, 0, 0, 83107, 0, 83010, 0, 0, 0, 83152, 0, 0, 0, 0, 0, 83022]
+
+After examining multiple instances of n I believe my original conjecture holds. There are 664579 primes between
+0 and 10^7. The primes are evenly distributed in subsets of primes with the same remainder. The exceptions are
+remainders that are factors of n (where they have 1) or multiples of those factors (where they have 0).
+This implies that in an infinite set of primes modded by n will create even subsets of the primes barring the
+excepetions explained above.
