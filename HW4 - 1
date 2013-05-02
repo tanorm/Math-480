@@ -1,5 +1,3 @@
-The following is my answer, below that is the my work on finding the answer. I had it all written out anyways so I decided to include it.
-
 The basis of a prime number is that is has no factors other than one and itself. Therefore if the equation x^2+bx+c
 can be factored anything that doesn't work for the factors can be considered a prime number.
 
@@ -9,8 +7,14 @@ Since the result will now have a guarenteed 2 factors, the function is composite
 
 My conjecture is that any values of b and c that can't be expressed as b = y + z and c = yz is prime and since
 there are infinitely many combinations of b and c that can't be expressed in this fashion, this is a set
-of infinite primes. EDIT: After further study I realized that there were additional conditions in order to make
+of infinite primes. 
 
+EDIT: After further study I realized that there were additional conditions in order to make
+this conjecture correct. The function is also always composite if b is odd and c is even. This can be seen when
+x^2 is even, b*x + c will always be even so the function is divisible by 2. When x^2 is odd, b*x will be odd,
+so x^2+b*x will be even and therefore the function will be divisible by 2.
+
+So if the original conjecture plus these new conditions are false then it is the set of infinite primes.
 
 The following code tests the validity of the Lemma
 
