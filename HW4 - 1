@@ -3,10 +3,22 @@ The following is my answer, below that is the my work on finding the answer. I h
 The basis of a prime number is that is has no factors other than one and itself. Therefore if the equation x^2+bx+c
 can be factored anything that doesn't work for the factors can be considered a prime number.
 
-Let b = y + z and c = yz where y and z are integers.
+Lemma: Let b = y + z and c = yz where y and z are integers.
 Then, x^2+bx+c can be factored into (x+y)(x+z).
 Since the result will now have a guarenteed 2 factors, the function is composite.
 
 My conjecture is that any values of b and c that can't be expressed as b = y + z and c = yz is prime and since
 there are infinitely many combinations of b and c that can't be expressed in this fashion, this is a set
-of infinite primes.
+of infinite primes. EDIT: After further study I realized that there were additional conditions in order to make
+
+
+The following code tests the validity of the Lemma
+
+for x in range(20):
+    y = ZZ.random_element(0, 100)
+    z = ZZ.random_element(0, 100)
+    b = y + z
+    c = y*z
+    if is_prime(x**2 + b*x + c):
+        print "Prime"
+    else: print "Not Prime"
