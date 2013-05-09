@@ -8,7 +8,7 @@ print str(a)
 
 """Since this value does not equal 1 we know that n is composite!"""
 
-""" Using the hint that p and q are very close to each other I took the square root of n in order to find two 
+""" b)  Using the hint that p and q are very close to each other I took the square root of n in order to find two 
 possible factors that are the same. I rounded this number because it has to be an integer and called it p. 
 I then checked for two factors close to each other by using a while loop that checked if n was divisible by
 p. If p was divisible the while loop breaks if not p = p+1. When I found the correct p I found q by n/p. """
