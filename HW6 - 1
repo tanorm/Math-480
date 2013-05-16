@@ -1,0 +1,19 @@
+Michael and Nikita agree on p is the next prime after 2^127-1
+Michael decides secret m and sends Mod(2,p)^m is 89646952373925749567894332598989134553
+Nikita secret n is 123456 so
+Mod(2,p)^n = 158950970901130875643663016511694449147
+
+#Determine p
+p = next_probable_prime((2^127) - 1)
+print p
+
+170141183460469231731687303715884105757
+
+#Use Michael's sent number and n to determine secret number
+sent = 89646952373925749567894332598989134553
+n = 123456
+secret = Mod(sent, p)^n
+print secret
+
+79067655658429219567805855344438774741
+#This is the secret number Michael and Nikita decided on
