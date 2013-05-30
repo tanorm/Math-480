@@ -1,0 +1,19 @@
+from sage.all import *
+
+# Always start asleep
+initial = [1, 0, 0, 0]
+A = matrix(RR, 4, [0.9, 0.1, 0.0, 0.0, #Fairly light sleep
+                   0.1, 0.5, 0.4, 0.0, #Prep for day
+                   0.0, 0.0, 0.7, 0.3, #At classes
+                   0.5, 0.0, 0.0, 0.5  #Doing HW
+                   ])
+
+emission_symbols = ["Zzz", "Grumble, grumble, grumble", "Getting Ready!", "Eureka!", "Getting tired, must keep working..."]
+B = matrix(RR, 4, 5, [0.95, 0.05, 0.0, 0.0, 0.0, #Fairly light sleep
+                      0.0, 0.5, 0.5, 0.0, 0.0, #Prep for day
+                      0.0, 0.1, 0.0, 0.6, 0.3, #At classes
+                      0.0, 0.1, 0.0, 0.2, 0.7 #Doing HW
+                      ])
+
+model = hmm.DiscreteHiddenMarkovModel(A, B, initial, emission_symbols)
+print (model.generate_sequence(20))
